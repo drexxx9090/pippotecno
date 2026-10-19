@@ -41,3 +41,14 @@ footer{text-align:center;padding:24px;color:var(--mut)}
 .item{display:flex;gap:10px;align-items:center;background:#fff;border-radius:var(--r);padding:10px;margin:8px 0;box-shadow:var(--sh);flex-wrap:wrap}
 .item .n{flex:1;min-width:140px}.item input{width:90px}
 .hide{display:none!important}
+
+/* --- Correcciones --- */
+input[type=checkbox]{width:auto;vertical-align:middle;margin-right:6px}
+.ph img:not([src]){display:none}
+header h1{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+header .btn{padding:10px 14px;white-space:nowrap}
+#enviar{width:100%}
+.row label{display:block;font-size:.9rem;color:var(--mut);margin-bottom:4px}
+.card .btn{text-align:center}
+a.btn{text-decoration:none}
+:focus-visible{outline:3px solid var(--azul);outline-offset:2px}

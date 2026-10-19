@@ -21,6 +21,7 @@ function achicar(file, max, tipo){
 }
 
 $("entrar").onclick = () => signInWithEmailAndPassword(auth,$("em").value,$("pw").value).catch(()=>aviso("Email o contraseña incorrectos",1));
+$("pw").onkeydown = e => { if (e.key === "Enter") $("entrar").click(); };
 $("salir").onclick = () => signOut(auth);
 onAuthStateChanged(auth, u => {
   const ok = !!u; $("login").classList.toggle("hide",ok); $("panel").classList.toggle("hide",!ok);
@@ -52,7 +53,7 @@ function pintarProds(){
   $("lista").replaceChildren();
   prods.forEach(p => {
     const r = el("div","item"), im = el("img","prev"); im.style.width=im.style.height="56px"; im.alt=p.nombre; if(p.imagen) im.src=p.imagen;
-    const n = el("div","n"); n.append(el("b","",p.nombre), el("div","stock",(cats.find(c=>c.id===p.categoriaId)||{}).nombre+" · "+(p.etiqueta||"ninguna")+(p.visible===false?" · OCULTO":"")));
+    const n = el("div","n"); n.append(el("b","",p.nombre), el("div","stock",((cats.find(c=>c.id===p.categoriaId)||{}).nombre||"Sin categoría")+" · "+(p.etiqueta||"ninguna")+(p.visible===false?" · OCULTO":"")));
     const pr = el("input"), st = el("input"); pr.type=st.type="number"; pr.min=st.min=0; pr.value=p.precio; st.value=p.stock; pr.title="Precio"; st.title="Stock";
     const ok = el("button","btn azul","Guardar"); ok.onclick = () => updateDoc(doc(db,"products",p.id),{precio:Number(pr.value),stock:Number(st.value)}).then(()=>aviso("Precio y stock guardados")).catch(()=>aviso("No se pudo guardar",1));
     const ed = el("button","btn sec","Editar"); ed.onclick = () => { editId=p.id; $("pn").value=p.nombre; $("pp").value=p.precio; $("ps").value=p.stock; $("pc").value=p.categoriaId; $("pe").value=p.etiqueta||"ninguna"; $("pvis").checked=p.visible!==false; imgProd=p.imagen||""; $("pv").src=imgProd; $("pv").classList.toggle("hide",!imgProd); $("ftit").textContent="Editando: "+p.nombre; scrollTo(0,0); };

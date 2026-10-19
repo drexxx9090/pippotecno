@@ -22,6 +22,7 @@ function cabecera(){
   $("zona").textContent = cfg.zona ? "Vendemos solo en " + cfg.zona : "";
 }
 function chips(){
+  if (cat !== "todas" && !cats.some(c => c.id === cat)) cat = "todas";
   $("chips").replaceChildren();
   [{id:"todas",nombre:"Todas"},...cats].forEach(c => {
     const b = el("button","chip"+(c.id===cat?" on":""),c.nombre);
