@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pippotecno</title><link rel="stylesheet" href="css/styles.css"></head>
+<body>
+<header>
+  <img id="logo" alt="Logo" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+  <h1 id="nombre">Pippotecno</h1>
+  <a id="ig" href="#" target="_blank" rel="noopener">Instagram</a>
+  <button class="btn" id="abrir" aria-label="Abrir carrito">Carrito (<span id="cnt">0</span>)</button>
+</header>
+<main>
+  <input id="q" type="search" placeholder="Buscar producto..." aria-label="Buscar">
+  <div class="chips" id="chips"></div>
+  <p id="estado">Cargando productos...</p>
+  <div class="grid" id="grid"></div>
+  <section class="box"><h2>Quiénes somos</h2><p id="quienes"></p><p><b id="zona"></b></p></section>
+</main>
+<footer><a id="ig2" href="#" target="_blank" rel="noopener">Instagram</a> · <a id="wa2" href="#" target="_blank" rel="noopener">WhatsApp</a></footer>
+<aside id="cart" aria-label="Carrito">
+  <div class="row"><h2 style="margin:0;flex:1">Tu pedido</h2><button class="btn sec" id="cerrar" style="flex:0">Cerrar</button></div>
+  <div id="items"></div>
+  <h3>Total: <span id="total"></span></h3>
+  <button class="btn" id="enviar">Enviar pedido por WhatsApp</button>
+</aside>
+<script type="module" src="js/app.js"></script>
+</body></html>
